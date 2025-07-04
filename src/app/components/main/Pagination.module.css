@@ -1,0 +1,132 @@
+.first {
+  border-radius: 50%;
+  height: 39px;
+  min-width: 39px;
+  background-color: #fff;
+  cursor: pointer;
+}
+.first::after {
+  display: block;
+  content: '\E908';
+  font-family: 'nc-font';
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 39px;
+  color: #aaa;
+  position: absolute;
+  min-width: 39px;
+  border-radius: 50%;
+  top: 0;
+  left: 0;
+}
+
+.first:hover::after {
+  background-color: #00c092;
+  color: #fff;
+}
+
+.second {
+  border-radius: 50%;
+  height: 39px;
+  min-width: 39px;
+  background-color: #fff;
+  cursor: pointer;
+}
+.second::after {
+  display: block;
+  content: '\E909';
+  font-family: 'nc-font';
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 39px;
+  color: #aaa;
+  position: absolute;
+  min-width: 39px;
+  border-radius: 50%;
+  top: 0;
+  left: 0;
+}
+
+.second:hover::after {
+  background-color: #00c092;
+  color: #fff;
+}
+
+.third {
+  border-radius: 50%;
+  height: 39px;
+  min-width: 39px;
+  background-color: #fff;
+  cursor: pointer;
+}
+.third::after {
+  display: block;
+  content: '\E90A';
+  font-family: 'nc-font';
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 39px;
+  color: #aaa;
+  position: absolute;
+  min-width: 39px;
+  border-radius: 50%;
+  top: 0;
+  left: 0;
+}
+
+.third:hover::after {
+  background-color: #00c092;
+  color: #fff;
+}
+
+.fourth {
+  border-radius: 50%;
+  height: 39px;
+  min-width: 39px;
+  background-color: #fff;
+  cursor: pointer;
+}
+.fourth::after {
+  display: block;
+  content: '\E90B';
+  font-family: 'nc-font';
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 39px;
+  color: #aaa;
+  position: absolute;
+  min-width: 39px;
+  border-radius: 50%;
+  top: 0;
+  left: 0;
+}
+
+.fourth:hover::after {
+  background-color: #00c092;
+  color: #fff;
+}
+
+.num {
+  border-radius: 50%;
+  height: 39px;
+  min-width: 39px;
+  line-height: 39px;
+  cursor: pointer;
+  padding: 0;
+}
+.num::after {
+  display: block;
+  font-size: 18px;
+  font-weight: 500;
+  color: #aaa;
+  position: absolute;
+  min-width: 39px;
+  border-radius: 50%;
+  top: 0;
+  left: 0;
+}
+
+.num:hover {
+  background-color: #00c092;
+  color: #fff;
+}

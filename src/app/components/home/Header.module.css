@@ -1,0 +1,112 @@
+/*모바일 버튼*/
+.mobile {
+  width: 55px;
+  height: 55px;
+  position: relative;
+}
+.mobile::after {
+  display: block;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 0;
+  font-family: 'nc-font';
+  content: '\E92D';
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 55px;
+  color: #000;
+}
+.mobile.active::after {
+  content: '\e92e';
+  color: #fff;
+}
+/*모바일 로고 */
+.mobile-logo::after {
+  content: '';
+  position: absolute;
+  background: url('/images/common/footer_w_logo.png') no-repeat 50% 50%;
+  z-index: 2;
+  width: 100px;
+  height: 60px;
+  background-size: contain;
+  opacity: 0.7;
+  right: 15px;
+  bottom: 10%;
+}
+
+.icon-mobile-login::after {
+  content: '\e801';
+  font-family: 'nc-font';
+  display: inline-block;
+  margin-left: 6px;
+  color: #a0a0a0;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+/* 모바일 말풍선 아이콘 */
+.icon-mobile-bubble {
+  position: relative;
+  padding-left: 22px;
+}
+.icon-mobile-bubble::before {
+  position: absolute;
+  font-family: 'nc-font';
+  font-size: 17px;
+  color: #fff;
+  content: '\e83f';
+  left: 0;
+  top: 41%;
+  display: block;
+  transform: translate(0, -50%);
+}
+/* 모바일 하단메뉴 */
+.icon-mobile-foot::before {
+  content: '\E920';
+  font-family: 'nc-font';
+  display: block;
+  /* vertical-align: top; */
+  font-size: 19px;
+  color: #fff;
+  font-style: normal;
+  margin-bottom: 10px;
+}
+.call::before {
+  content: '\E952';
+}
+.lecture::before {
+  content: '\E959';
+}
+.home::before {
+  content: '\E800';
+  font-family: 'nc-home';
+  font-size: 24px;
+}
+.profile::before {
+  content: '\E96D';
+}
+.menu::before {
+  content: '\e92d';
+}
+
+@media (width<769px) {
+  .mobile {
+    height: 50px;
+    width: 50px;
+    right: 0;
+  }
+  .mobile::after {
+    font-size: 18px;
+  }
+
+  .icon-mobile-foot::before {
+    margin-bottom: 0;
+    font-size: 12px;
+  }
+  .home::before {
+    font-size: 16px;
+  }
+}

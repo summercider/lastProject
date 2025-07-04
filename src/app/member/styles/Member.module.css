@@ -1,0 +1,161 @@
+/* 멤버 좌측 */
+.sub {
+  background: url('/images/member/sub_bg.png') no-repeat right/cover,
+    linear-gradient(345.81deg, #037b69 5.84%, #22bca5 99.62%);
+  border-radius: 0px 15px 0 0;
+}
+.icon-next:hover {
+  color: var(--color-point1);
+  cursor: pointer;
+}
+.icon-next::after {
+  display: block;
+  position: absolute;
+  content: '';
+  width: 19px;
+  height: 19px;
+  top: 16px;
+  right: 0;
+  position: absolute;
+  background: url('/images/member/next_bf.svg');
+  transition: 0.3s;
+}
+.icon-next:hover::after {
+  background-image: url('/images/member/next_af.svg');
+}
+.icon-next-active {
+  color: var(--color-point1);
+}
+.icon-next-active::after {
+  background-image: url('/images/member/next_af.svg');
+}
+/* 우측 */
+
+.icon-accent::after {
+  padding-left: 2px;
+  content: '*';
+  color: #ff0000;
+  font-size: 15px;
+}
+
+.frm-label {
+  display: inline-block;
+  font-weight: 500;
+  width: 171px;
+}
+.frm-input {
+  border: 2px solid #e5e7ee;
+  width: calc(100% - 175px);
+  height: 50px;
+  padding: 11px 40px 12px 11px;
+  border-radius: 5px;
+}
+.frm-input:focus {
+  border-color: var(--color-point1);
+}
+/* join */
+.join-next {
+  position: relative;
+}
+.join-next::after {
+  font-family: 'nc-font';
+  content: '\E83C';
+  display: block;
+  position: absolute;
+  top: 50%;
+  right: -10px;
+  margin-top: -6px;
+  color: #e5e5e5;
+  width: 20px;
+  height: 12px;
+  font-size: 12px;
+}
+
+.checkbox {
+  display: inline-flex;
+  align-items: center;
+  gap: 0 6px;
+  /* vertical-align:baseline에 의한 하단 간격없애기 */
+  vertical-align: top;
+  cursor: pointer;
+  border: none;
+  margin-right: 5px;
+}
+.checkbox::before {
+  content: '';
+  width: 18px;
+  height: 18px;
+  border: none;
+  background: url(/images/member/agree-icon-check-off.png) 50% 50% / 100%;
+  flex-shrink: 0;
+}
+/* :has - ios 15.4부터 지원 */
+.checkbox:has(input[type='checkbox']:checked)::before {
+  background: url(/images/member/agree-icon-check-on.png) no-repeat 50% 50% /
+    100%;
+}
+
+/* login */
+.frm-input-login {
+  border: 2px solid #e5e7ee;
+  height: 50px;
+  width: 100%;
+  padding: 11px 40px 12px 11px;
+  border-radius: 5px;
+}
+.frm-input-login:focus {
+  border-color: var(--color-point1);
+}
+
+.checkbox-login {
+  display: inline-flex;
+  align-items: center;
+  gap: 0 7px;
+  /* vertical-align:baseline에 의한 하단 간격없애기 */
+  vertical-align: top;
+  cursor: pointer;
+  border: none;
+  margin-right: 5px;
+}
+.checkbox-login:hover::before {
+  background-position: -23px 0;
+}
+.checkbox-login::before {
+  content: '';
+  width: 20px;
+  height: 20px;
+  border: none;
+  background: url(/images/member/nc-isprite@2x.png) no-repeat;
+  background-size: 230px 20px;
+  flex-shrink: 0;
+  background-position: 0 0;
+}
+.checkbox-login:has(input[type='checkbox']:checked)::before {
+  background-position: -46px 0;
+}
+
+@media (max-width: 1024px) {
+  .frm-input {
+    width: 100%;
+    height: 65px;
+    display: block;
+  }
+
+  .frm-input-login {
+    height: 64px;
+  }
+  .checkbox-login {
+    gap: 10px;
+  }
+}
+@media (max-width: 768px) {
+  .frm-input {
+    height: 45px;
+  }
+  .frm-input-login {
+    height: 45px;
+  }
+  .checkbox-login {
+    gap: 7px;
+  }
+}

@@ -1,0 +1,13 @@
+.cateBtn {
+  padding: 0;
+  height: 50px;
+  width: 142px;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 700;
+  border: 1px solid #e3e3e3;
+  color: #2c7fdf;
+}
+.cateBtn.active {
+  color: #fff;
+}

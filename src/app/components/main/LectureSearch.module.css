@@ -1,0 +1,45 @@
+.btn {
+  color: #fff;
+  font-weight: 500;
+  min-width: 80px;
+  border-radius: 4px;
+  padding: 8px 4px;
+  font-family: 'nc-font';
+  position: relative;
+}
+
+.tag1 {
+  background-color: var(--color-point1);
+  margin-right: 3px;
+}
+.tag1::after {
+  content: ' \e925';
+  right: 0px;
+}
+.tag2 {
+  margin-left: 3px;
+  background-color: var(--color-point2);
+}
+.tag2::after {
+  content: ' \E932';
+  right: 0px;
+}
+
+/*  */
+
+.tagBtn {
+  padding: 9px 17px;
+  background: #00c092;
+  border-radius: 30px;
+  color: #fff;
+}
+
+.tagBtn::after {
+  font-family: 'nc-font';
+  content: '\E828';
+  font-size: 10px;
+  font-weight: normal;
+  color: #fff;
+  margin-left: 5px;
+  line-height: 12px;
+}

@@ -1,0 +1,9 @@
+saleitem
+-page 
+-limit
+
+파스인트라 상관없
+
+---초기 데이터--- 서버
+함수 uitl>lectureInitalFetch
+사용 app>pungsan>page.tsx 
