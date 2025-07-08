@@ -1,17 +1,17 @@
 import LectureContainer from '@/app/components/main/LectureContainer';
 import LectureList from '@/app/components/main/LectureList';
 import LectureSearch from '@/app/components/main/LectureSearch';
-import Pagination from '@/app/components/main/Pagination';
-import { redirect } from 'next/navigation';
+// import Pagination from '@/app/components/main/Pagination';
+// import { redirect } from 'next/navigation';
 
-import initialLectureFetch from '@/util/initialLectureFetch';
+// import initialLectureFetch from '@/util/initialLectureFetch';
 
-type initialData = {
-  total: number;
-  page: number;
-  limit: number;
-  data: listData[];
-};
+// type initialData = {
+//   total: number;
+//   page: number;
+//   limit: number;
+//   data: listData[];
+// };
 
 type listData = {
   Age_From: number;
@@ -29,10 +29,11 @@ type listData = {
   Use_Week: string;
 };
 
-type pageData = {
-  page: number;
-  total: number;
-};
+// type pageData = {
+//   page: number;
+//   total: number;
+// };
+
 // url노출,공유 X , 새로고침시 초기화, 서버/클라이언트 분명히 나누기위함
 // 서버 패칭 > prop전달 list렌더
 // 컴포너트 리패칭 > context+reactquery + querykey 리렌더

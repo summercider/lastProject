@@ -7,7 +7,7 @@ import ModalLogin from '@/app/member/(.)login/modal';
 import { useEffect, useState } from 'react';
 import MobileHeadMenu from '@/app/components/home/MobileHeadMenu';
 import MobileFootMenu from '@/app/components/home/MobileFootMenu';
-import { usePathname, useRouter } from 'next/navigation';
+import { usePathname } from 'next/navigation';
 
 // 로그인세트+모바일메뉴버튼 모바일메뉴 켜지면
 // z-index: 2;

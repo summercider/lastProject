@@ -83,7 +83,7 @@ export default function LectureList() {
   const router = useRouter();
 
   // console.log(inpValue, btnValue, '컨택스트 확인@@@@@@@@@@@@@@');
-  const params = useParams();
+  // const params = useParams();
   // const detailParams = params?.detail;
 
   const { isPending, data, isError, error } = useQuery<{
