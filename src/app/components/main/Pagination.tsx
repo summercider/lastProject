@@ -2,12 +2,13 @@
 
 import { useLectureContext } from '@/context/LecutureContext';
 import styles from './Pagination.module.css';
-import page from '@/app/pungsan/[detail]/page';
+// import page from '@/app/pungsan/[detail]/page';
 
-export default function Pagination({}: // currentButtons,
-{
-  // currentButtons: number[];
-}) {
+export default function Pagination( //{}: // currentButtons,
+  {
+    // currentButtons: number[];
+  }
+) {
   const lectureContext = useLectureContext();
 
   // --------------

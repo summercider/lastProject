@@ -1,7 +1,7 @@
 'use client';
-import { useContext, useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import styles from './LectureList.module.css';
-import { LectureContext, useLectureContext } from '@/context/LecutureContext';
+import { useLectureContext } from '@/context/LecutureContext';
 import { useQuery } from '@tanstack/react-query';
 import { useParams, useRouter } from 'next/navigation';
 import Pagination from '@/app/components/main/Pagination';
@@ -72,19 +72,19 @@ function getTargetFromAge(Age_From: number, Age_To: number) {
 // ---
 export default function LectureList() {
   const {
-    totalPage,
+    // totalPage,
     setTotalPage,
     currentPage,
     inpValue,
-    setInpValue,
+    // setInpValue,
     btnValue,
-    setBtnValue,
+    // setBtnValue,
   } = useLectureContext();
   const router = useRouter();
 
   // console.log(inpValue, btnValue, '컨택스트 확인@@@@@@@@@@@@@@');
   const params = useParams();
-  const detailParams = params?.detail;
+  // const detailParams = params?.detail;
 
   const { isPending, data, isError, error } = useQuery<{
     total: string;
@@ -93,12 +93,11 @@ export default function LectureList() {
     queryKey: ['salefilter', btnValue, inpValue, currentPage],
     queryFn: () =>
       fetch(
-        `http://localhost:3001/saleitem?page=${currentPage}&btnValue=${btnValue}&inpValue=${inpValue}`
+        `${process.env.NEXT_PUBLIC_API_URL}/saleitem?page=${currentPage}&btnValue=${btnValue}&inpValue=${inpValue}`
       ).then((res) => res.json()), // {data:SalesItem[]}
   });
   const saleItems = data?.data;
 
-  
   // ----------
   // const [currentpage,setCurrentPage] = useState(1)  //이건 context에 있음
   //  total을 받음 ex) 184

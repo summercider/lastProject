@@ -1,12 +1,12 @@
 'use client';
 import BreadcrumbNavi from '@/app/components/member/BreadcrumbNavi';
 import MemberTitle from '@/app/components/member/MemberTitle';
-import React, { useState } from 'react';
+import React from 'react';
 import styles from '../styles/Member.module.css';
 import Link from 'next/link';
 
 export default function Login() {
-  const [open, setOpen] = useState(false);
+  // const [open, setOpen] = useState(false);
 
   return (
     <div className="w-[calc(100%-320px)] max-md:w-full max-sm:min-h-[600px]">

@@ -1,8 +1,3 @@
-import GuideContent from '@/app/components/guide/GuideContent';
-import Discount from '@/app/guide/Discount';
-import Reception from '@/app/guide/Reception';
-import Refund from '@/app/guide/Refund';
-
 export default function Guide() {
   return null;
   // layout에서 직접 호출

@@ -3,9 +3,9 @@ import BreadcrumbNavi from '@/app/components/member/BreadcrumbNavi';
 import MemberTitle from '@/app/components/member/MemberTitle';
 import Link from 'next/link';
 
-import { useState } from 'react';
-import { useRouter } from 'next/navigation';
-import ModalLogin from '@/app/member/(.)login/modal';
+// import { useState } from 'react';
+// import { useRouter } from 'next/navigation';
+// import ModalLogin from '@/app/member/(.)login/modal';
 
 export default function MemberDivision() {
   return (
@@ -39,10 +39,10 @@ export default function MemberDivision() {
               max-sm:mt-[8px] max-sm:text-[12px]"
             >
               하남시 체육시설(풍산멀티스포츠센터) 강습프로그램 이용 중인
-              고객님께서는 <strong>'예'</strong>를 클릭해주세요.
+              고객님께서는 <strong>{'예'}</strong>를 클릭해주세요.
               <br />
               하남시 체육시설 온라인접수서비스 신규회원가입을 원하시는 경우
-              <strong> '아니오'</strong>를 클릭해주세요.
+              <strong>{'아니오'}</strong>를 클릭해주세요.
             </p>
           </div>
 

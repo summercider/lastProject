@@ -7,3 +7,13 @@ saleitem
 ---초기 데이터--- 서버
 함수 uitl>lectureInitalFetch
 사용 app>pungsan>page.tsx 
+
+
+
+-------------------
+항목	설명
+❗ 서버 컴포넌트에서는 사용 불가	React Query는 클라이언트 컴포넌트 전용. Suspense도 클라이언트에서만 의미 있음
+❗ Error Boundary 필수	Suspense로 로딩 처리를 할 경우, 에러 처리는 ErrorBoundary로 해야 함
+❗ Streaming 기대 시 주의	서버에서 먼저 일부 렌더하고 클라이언트 fetch로 넘어오는 구조와는 다름
+❗ Hydration 고려 필요	Next.js SSR을 쓸 경우, hydration 전에 React Query의 상태를 프리패칭해줘야 깜빡임 방지됨
+

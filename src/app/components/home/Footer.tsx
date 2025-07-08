@@ -12,7 +12,8 @@ export default function Footer({ className }: HeaderProps) {
   const optionRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    function handleClickOutside(event: MouseEvent) {
+    function handleClickOutside() {
+    //  event: MouseEvent
       if (option && optionRef.current) {
         setOption(false);
       }

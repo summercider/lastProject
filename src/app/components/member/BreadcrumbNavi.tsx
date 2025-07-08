@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import React from 'react';
 
 export default function BreadcrumbNavi({ path }: { path: string[] }) {
@@ -9,12 +10,12 @@ export default function BreadcrumbNavi({ path }: { path: string[] }) {
     >
       <ul className="flex">
         <li className="w-[13px] h-[24px] ">
-          <a
+          <Link
             href="/"
             className="block relative  font-[nc-font] h-full text-[#222]
             after:content-['\e92c'] after:absolute after:top-0 after:left-0 after:h-[24px]
             "
-          ></a>
+          ></Link>
         </li>
 
         {path.map((label, idx) => (

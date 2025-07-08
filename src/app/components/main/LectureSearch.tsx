@@ -2,7 +2,9 @@
 
 import { useRef, useState } from 'react';
 import styles from './LectureSearch.module.css';
-import { LectureContext, useLectureContext } from '@/context/LecutureContext';
+import { useLectureContext } from '@/context/LecutureContext';
+import Link from 'next/link';
+
 // 하드코딩
 const first = ['수영', '헬스', '필라테스'];
 const second: { [key: string]: string[] } = {
@@ -15,8 +17,7 @@ export default function LectureSearch() {
   const [selectIdx, setselectIdx] = useState(-1);
   const [select2thIdx, setselect2thIdx] = useState(-1);
 
-  const { inpValue, setInpValue, btnValue, setBtnValue, setCurrentPage } =
-    useLectureContext();
+  const { inpValue, setInpValue, btnValue, setBtnValue } = useLectureContext();
   // console.log(inpValue, btnValue);
   const inpRef = useRef<HTMLInputElement | null>(null);
 
@@ -193,13 +194,13 @@ export default function LectureSearch() {
           </ul>
         </div>
         <div>
-          <a className="text-[#fff]" href="/">
+          <Link className="text-[#fff]" href="/">
             <button
               className={`${styles.tag1} ${styles.btn} text-[13px] max-md:text-[18px] max-sm:text-[12px]`}
             >
               초기화
             </button>
-          </a>
+          </Link>
           <button
             onClick={inpSearch}
             className={`${styles.tag2} ${styles.btn} text-[13px] max-md:text-[18px] max-sm:text-[12px]`}

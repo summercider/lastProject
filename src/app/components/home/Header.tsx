@@ -20,7 +20,7 @@ interface HeaderProps {
 export default function Header({ className }: HeaderProps) {
   const [open, setOpen] = useState(false);
   const pathname = usePathname();
-  const router = useRouter();
+  // const router = useRouter();
   // console.log(pathname);
   const [modalOpen, setModalOpen] = useState(false);
 
@@ -74,7 +74,7 @@ export default function Header({ className }: HeaderProps) {
             />
             <h1
               className="text-[var(--point-color3)] text-[22px] font-bold font-[Pretendard] leading-[28px]
-            max-sm:text-[16px]" 
+            max-sm:text-[16px]"
             >
               풍산멀티스포츠센터
             </h1>

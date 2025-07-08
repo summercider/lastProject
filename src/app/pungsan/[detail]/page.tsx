@@ -2,7 +2,7 @@
 import { useParams } from 'next/navigation';
 import React from 'react';
 
-export default function page() {
+export default function Detailpage() {
   const params = useParams();
   const detailId = params?.detail;
   console.log(params);
