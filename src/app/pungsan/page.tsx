@@ -13,21 +13,21 @@ import LectureSearch from '@/app/components/main/LectureSearch';
 //   data: listData[];
 // };
 
-type listData = {
-  Age_From: number;
-  Age_To: number;
-  Capacity: number;
-  Lesson_ID: string;
-  Lottery_Yn: string;
-  Month_Qty: string;
-  OnLine_YN: string;
-  Place_Code: string;
-  Sales_Code: string;
-  Sales_Item_Name: string;
-  Start_Time: string;
-  Unit_Price: number;
-  Use_Week: string;
-};
+// type listData = {
+//   Age_From: number;
+//   Age_To: number;
+//   Capacity: number;
+//   Lesson_ID: string;
+//   Lottery_Yn: string;
+//   Month_Qty: string;
+//   OnLine_YN: string;
+//   Place_Code: string;
+//   Sales_Code: string;
+//   Sales_Item_Name: string;
+//   Start_Time: string;
+//   Unit_Price: number;
+//   Use_Week: string;
+// };
 
 // type pageData = {
 //   page: number;

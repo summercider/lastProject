@@ -3,7 +3,7 @@ import { useEffect } from 'react';
 import styles from './LectureList.module.css';
 import { useLectureContext } from '@/context/LecutureContext';
 import { useQuery } from '@tanstack/react-query';
-import { useParams, useRouter } from 'next/navigation';
+import { useRouter } from 'next/navigation';
 import Pagination from '@/app/components/main/Pagination';
 
 type SalesItem = {
