@@ -30,8 +30,8 @@ export const pretendard = localFont({
 });
 
 export const metadata: Metadata = {
-  title: 'last!!!!!',
-  description: '공부좀해라',
+  title: 'NEXTjs!!!',
+  description: '공부하기',
 };
 
 export default function RootLayout({
