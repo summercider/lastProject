@@ -6,6 +6,8 @@ import Footer from '@/app/components/home/Footer';
 import localFont from 'next/font/local';
 import TanstackProvider from '@/app/provider/TanstackProvider';
 
+const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'https://yjins-aws.com';
+
 const notoSansKr = Noto_Sans_KR({
   subsets: ['latin'],
   display: 'swap',
@@ -32,6 +34,23 @@ export const pretendard = localFont({
 export const metadata: Metadata = {
   title: 'NEXTjs!!!',
   description: '공부하기',
+
+  openGraph: {
+    title: 'NEXTjs!!!',
+    description: '공부하기',
+    url: 'https://yjins-aws.com',
+    siteName: 'next study!!!',
+    images: [
+      {
+        url: `${baseUrl}/images/common/logo.svg`,
+        width: 400,
+        height: 400,
+        alt: 'nextjs+ts+tailwind+express+docker+ec2',
+      },
+    ],
+    locale: 'ko_KR',
+    type: 'website',
+  },
 };
 
 export default function RootLayout({
