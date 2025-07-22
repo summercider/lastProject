@@ -71,7 +71,7 @@ export default function Header({ className }: HeaderProps) {
   }, [open]);
 
   // 제출하면 fetch
-  const url = 'https://api.yjins-aws.com/chat';
+  const url = `${process.env.NEXT_PUBLIC_API_URL}/chat`;
   const handleSendMessage = async (
     e?: React.FormEvent<HTMLFormElement> | React.MouseEvent
   ) => {
