@@ -5,7 +5,7 @@ import { usePathname } from 'next/navigation';
 import { useEffect, useRef, useState } from 'react';
 
 export default function MobileHeadMenu({
-  open,
+  // open,
   setOpen,
 }: {
   open: boolean;
@@ -47,7 +47,6 @@ export default function MobileHeadMenu({
       });
     }
   };
-
 
   return (
     <div className="모바일메뉴  fixed z-9  w-full h-full bg-[#fff] right-0 top-0 ">
