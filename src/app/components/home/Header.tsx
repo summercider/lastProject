@@ -10,6 +10,10 @@ import MobileFootMenu from '@/app/components/home/MobileFootMenu';
 import { usePathname } from 'next/navigation';
 import Chatbot from '@/app/components/chatbot/chatbot';
 
+interface Message {
+  sender: 'user' | 'AI';
+  text: string;
+}
 // 로그인세트+모바일메뉴버튼 모바일메뉴 켜지면
 // z-index: 2;
 // left: 15px;
@@ -29,6 +33,9 @@ export default function Header({ className }: HeaderProps) {
   const [prvScroll, setPrvScroll] = useState(0);
 
   const [chat, setChat] = useState(false); // 챗봇창
+  const [messages, setMessages] = useState<Message[]>([
+    { sender: 'AI', text: '안녕하세요! 무엇을 도와드릴까요?' },
+  ]);
 
   useEffect(() => {
     function headerScroll() {
@@ -186,30 +193,17 @@ export default function Header({ className }: HeaderProps) {
           >
             AI문의
           </li>
+
+          {/* 챗봇 */}
           {chat && (
-            <div className="px-[10px] pt-[30px] pb-[10px] bg-point2 opacity-90 absolute w-[200px] h-[400px] top-[20px] flex flex-col justify-between">
-              <button
-                className="absolute right-0 top-0 text-[12px] text-[#fff]"
-                onClick={() => setChat(false)}
-              >
-                접어두기
-              </button>
-              <div className=" text-center">
-                <h2 className=" font-bold text-point1">AI 문의하기</h2>
-              </div>
-
-              {/* <div className="flex flex-col-reverse gap-2 overflow-y-auto flex-1">
-                {messages.map((msg, i) => (
-                  <div key={i} className="bg-[#fff] rounded-[10px] p-1 text-sm">
-                    {msg}
-                  </div>
-                ))}
-              </div> */}
-              {/* 챗봇 */}
-
-              <Chatbot />
-            </div>
+            <Chatbot
+              messages={messages}
+              setMessages={setMessages}
+              chat={chat}
+              setChat={setChat}
+            />
           )}
+
           {/*모달 */}
           {modalOpen && <ModalLogin setModalOpen={setModalOpen} />}
         </ul>
