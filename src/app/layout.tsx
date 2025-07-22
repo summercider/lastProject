@@ -32,12 +32,12 @@ export const pretendard = localFont({
 });
 
 export const metadata: Metadata = {
-  title: 'NEXTjs!!!',
-  description: '공부하기',
+  title: '풍산멀티스포츠센터',
+  description: '양진서_NEXTJS_프로젝트',
 
   openGraph: {
-    title: 'NEXTjs!!!',
-    description: '공부하기',
+    title: '풍산멀티스포츠센터',
+    description: '양진서_NEXTJS_프로젝트',
     url: 'https://yjins-aws.com',
     siteName: 'next study!!!',
     images: [

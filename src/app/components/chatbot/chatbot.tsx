@@ -69,7 +69,7 @@ export default function Chatbot({
   };
 
   return (
-    <div className="px-[10px] pt-[40px] pb-[10px] bg-point2 opacity-90 absolute w-[200px] h-[500px] top-[20px] flex flex-col">
+    <div className="pl-[10px] pr-[10px] pt-[40px] pb-[10px] bg-point2 opacity-90 absolute w-[200px] h-[500px] top-[20px] flex flex-col">
       <button
         className="absolute left-0 top-0 text-[12px] text-[#fff]"
         onClick={() =>
