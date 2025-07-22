@@ -21,8 +21,8 @@
 }
 
 .first:hover::after {
-  background-color: #00c092;
-  color: #fff;
+  /* background-color: #00c092; */
+  color: #ddd;
 }
 
 .second {
@@ -48,8 +48,8 @@
 }
 
 .second:hover::after {
-  background-color: #00c092;
-  color: #fff;
+  /* background-color: #00c092; */
+  color: #ddd;
 }
 
 .third {
@@ -75,8 +75,8 @@
 }
 
 .third:hover::after {
-  background-color: #00c092;
-  color: #fff;
+  /* background-color: #00c092; */
+  color: #ddd;
 }
 
 .fourth {
@@ -102,8 +102,8 @@
 }
 
 .fourth:hover::after {
-  background-color: #00c092;
-  color: #fff;
+  /* background-color: #00c092; */
+  color: #ddd;
 }
 
 .num {

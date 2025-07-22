@@ -35,6 +35,11 @@ export default function LectureSearch() {
     }
   }
 
+  function handleResert() {
+    setselectIdx(-1);
+    setselect2thIdx(-1);
+  }
+
   return (
     <div id="상단">
       {/* 전체 */}
@@ -96,7 +101,9 @@ export default function LectureSearch() {
             <div>
               <ul className="[&>li>button]:h-[45px] [&>li>button]:w-full [&>li>button]:text-start">
                 {second[first[selectIdx]] ? null : (
-                  <li className="text-center">종목을 선택해 주세요</li>
+                  <li className="text-center pt-[20px]">
+                    종목을 선택해 주세요
+                  </li>
                 )}
 
                 {second[first[selectIdx]]?.map((lesson, idx) => (
@@ -197,6 +204,7 @@ export default function LectureSearch() {
           <Link className="text-[#fff]" href="/">
             <button
               className={`${styles.tag1} ${styles.btn} text-[13px] max-md:text-[18px] max-sm:text-[12px]`}
+              onClick={handleResert}
             >
               초기화
             </button>

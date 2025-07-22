@@ -27,6 +27,13 @@ export default function Header({ className }: HeaderProps) {
   const [headerShow, setHeaderShow] = useState(true);
   const [prvScroll, setPrvScroll] = useState(0);
 
+  const [chat, setChat] = useState(true);
+
+  const [messages, setMessages] = useState([
+    { sender: 'AI', text: '안녕하세요! 무엇을 도와드릴까요?' },
+  ]);
+  const [inpMsg, setInpMsg] = useState('');
+
   useEffect(() => {
     function headerScroll() {
       const currentScroll = window.scrollY;
@@ -49,6 +56,51 @@ export default function Header({ className }: HeaderProps) {
       window.removeEventListener('scroll', headerScroll);
     };
   }, [prvScroll]);
+
+  // 모바일메뉴열면 기존 바디 스크롤막기
+  useEffect(() => {
+    if (open) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = ''; //
+    }
+
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [open]);
+
+  // 제출하면 fetch
+  const url = 'https://yjins-aws.com/chat';
+  const handleSendMessage = async (
+    e?: React.FormEvent<HTMLFormElement> | React.MouseEvent
+  ) => {
+    e?.preventDefault();
+
+    try {
+      const response = await fetch(url, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ messages: inpMsg }),
+      });
+
+      if (!response.ok) {
+        throw new Error(`HTTP error! Status: ${response.status}`);
+      }
+
+      const data = await response.json();
+      const aiMessage = { sender: 'AI', text: data.response || '응답 없음' };
+      setMessages((prev) => [aiMessage, ...prev]);
+    } catch (error) {
+      console.error('Error:', error);
+      setMessages((prev) => [
+        { sender: 'AI', text: '오류가 발생했어요. 다시 시도해 주세요.' },
+        ...prev,
+      ]);
+    }
+  };
 
   return (
     <header
@@ -139,7 +191,7 @@ export default function Header({ className }: HeaderProps) {
         </nav>
         {/* 로그인셋 */}
         <ul
-          className={`로그인세트  z-50 absolute top-[34px] flex [&>li]:px-[12px] text-[14px] font-medium  [&>li>a]:hover:text-point1 [&>li]:hover:text-point1 [&>li]:hover:underline  -mr-[12px] font-[Maven_Pro] 
+          className={`로그인셋  z-50 absolute top-[34px] flex [&>li]:px-[12px] text-[14px] font-medium  [&>li>a]:hover:text-point1 [&>li]:hover:text-point1 [&>li]:hover:underline  -mr-[12px] font-[Maven_Pro] 
         max-md:top-[25px] max-md:right-[58px]
         max-sm:[&>li]:px-[6px] max-sm:top-[17px]
         ${open ? 'left-[20px] max-sm:left-[10px]' : 'right-0 '}
@@ -163,7 +215,73 @@ export default function Header({ className }: HeaderProps) {
               회원가입
             </Link>
           </li>
+          <li
+            className={`relative before:content-[''] before:w-[1px] before:h-[9px] before:block before:bg-[#ddd] before:absolute before:left-0 before:top-1/2 before:-translate-y-1/2 cursor-pointer  
+              ${open ? 'text-[#fff]' : 'text-[#222]'}`}
+            onClick={() => setChat((prev) => !prev)}
+          >
+            AI문의
+          </li>
+          {chat && (
+            <div className="px-[10px] pt-[30px] pb-[10px] bg-point2 opacity-90 absolute w-[200px] h-[400px] top-[20px] flex flex-col justify-between">
+              <button
+                className="absolute right-0 top-0 text-[12px] text-[#fff]"
+                onClick={() => setChat(false)}
+              >
+                접어두기
+              </button>
+              <div className=" text-center">
+                <h2 className=" font-bold text-point1">AI 문의하기</h2>
+              </div>
 
+              {/* <div className="flex flex-col-reverse gap-2 overflow-y-auto flex-1">
+                {messages.map((msg, i) => (
+                  <div key={i} className="bg-[#fff] rounded-[10px] p-1 text-sm">
+                    {msg}
+                  </div>
+                ))}
+              </div> */}
+              <div className="flex flex-col-reverse gap-2 overflow-y-auto flex-1">
+                {messages.map((msg, i) => (
+                  <div
+                    key={i}
+                    className={`flex ${
+                      msg.sender === 'user' ? 'justify-end' : 'justify-start'
+                    }`}
+                  >
+                    <div
+                      className={`max-w-[80%] p-2 rounded-lg text-sm ${
+                        msg.sender === 'user'
+                          ? 'bg-point1 text-white'
+                          : 'bg-white text-black'
+                      }`}
+                    >
+                      <p className="text-[10px] mb-1 font-semibold">
+                        {msg.sender === 'user' ? '나' : 'AI'}
+                      </p>
+                      <p>{msg.text}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+              <div>
+                <form onSubmit={handleSendMessage} className="flex">
+                  <input
+                    value={inpMsg}
+                    onChange={(e) => setInpMsg(e.target.value)}
+                    className="border-1 border-point1 w-full bottom-0 placeholder:text-center mt-[20px] placeholder:text-[#fff] text-[#fff]"
+                    placeholder="질문을 입력하세요"
+                  />
+                </form>
+                <button
+                  onClick={handleSendMessage}
+                  className=" border-1 block  bg-point1 border-point1 p-0 text-[12px] text-[#fff] w-full"
+                >
+                  전송
+                </button>
+              </div>
+            </div>
+          )}
           {/*모달 */}
           {modalOpen && <ModalLogin setModalOpen={setModalOpen} />}
         </ul>
@@ -182,7 +300,7 @@ export default function Header({ className }: HeaderProps) {
       </div>
       {/* 모바일 */}
       {/* 모바일 페이지 */}
-      {open && <MobileHeadMenu />}
+      {open && <MobileHeadMenu open={open} setOpen={setOpen} />}
       {/* 모바일하단 네비 */}
       <MobileFootMenu open={open} setOpen={setOpen} />
     </header>

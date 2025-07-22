@@ -156,6 +156,7 @@ export default function LectureList() {
                   key={idx}
                 >
                   {list.Sales_Item_Name}
+                  {/* lineheight뺴고 flex+items-center */}
                 </li>
               ))}
             </ul>

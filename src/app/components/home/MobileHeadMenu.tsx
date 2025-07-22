@@ -4,7 +4,13 @@ import styles from './Header.module.css';
 import { usePathname } from 'next/navigation';
 import { useEffect, useRef, useState } from 'react';
 
-export default function MobileHeadMenu() {
+export default function MobileHeadMenu({
+  open,
+  setOpen,
+}: {
+  open: boolean;
+  setOpen: React.Dispatch<React.SetStateAction<boolean>>;
+}) {
   const pathname = usePathname();
   const [click, setClick] = useState(pathname.split('/')[1]);
   const rightRef = useRef<HTMLDivElement>(null);
@@ -41,6 +47,7 @@ export default function MobileHeadMenu() {
       });
     }
   };
+
 
   return (
     <div className="모바일메뉴  fixed z-9  w-full h-full bg-[#fff] right-0 top-0 ">
@@ -151,6 +158,7 @@ export default function MobileHeadMenu() {
                       : 'text-[#222]'
                   }`}
                 href={'/'}
+                onClick={() => setOpen(false)}
               >
                 수강신청
               </Link>
@@ -164,6 +172,7 @@ export default function MobileHeadMenu() {
                       : 'text-[#222]'
                   }`}
                 href={'/guide'}
+                onClick={() => setOpen(false)}
               >
                 신청안내
               </Link>
@@ -177,6 +186,7 @@ export default function MobileHeadMenu() {
                       : 'text-[#222]'
                   }`}
                 href={'/rent'}
+                onClick={() => setOpen(false)}
               >
                 대관신청
               </Link>
