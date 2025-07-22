@@ -77,7 +77,10 @@ export default function Header({ className }: HeaderProps) {
   ) => {
     e?.preventDefault();
 
-    if (!inpMsg.trim()) return;
+    if (!inpMsg.trim()) {
+      alert('질문 내용이 없습니다.');
+      return;
+    }
 
     setMessages((prev) => [{ sender: 'user', text: inpMsg }, ...prev]);
 
@@ -87,7 +90,7 @@ export default function Header({ className }: HeaderProps) {
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ message: inpMsg }),
+        body: JSON.stringify({ message: inpMsg.trim() }),
       });
 
       if (!response.ok) {
@@ -247,45 +250,52 @@ export default function Header({ className }: HeaderProps) {
                   </div>
                 ))}
               </div> */}
-              <div className="flex flex-col-reverse gap-2 overflow-y-auto flex-1">
-                {messages.map((msg, i) => (
-                  <div
-                    key={i}
-                    className={`flex ${
-                      msg.sender === 'user' ? 'justify-end' : 'justify-start'
-                    }`}
-                  >
+              {/* 챗봇 */}
+              <div>
+                {/* 화면 */}
+                <div className="flex flex-col-reverse gap-[8px] overflow-y-auto flex-1">
+                  {messages.map((msg, i) => (
                     <div
-                      className={`max-w-[80%] p-2 rounded-lg text-sm ${
-                        msg.sender === 'user'
-                          ? 'bg-point1 text-white'
-                          : 'bg-white text-black'
+                      key={i}
+                      className={`flex ${
+                        msg.sender === 'user' ? 'justify-end' : 'justify-start'
                       }`}
                     >
-                      <p className="text-[10px] mb-1 font-semibold">
-                        {msg.sender === 'user' ? '나' : 'AI'}
-                      </p>
-                      <p>{msg.text}</p>
+                      <div
+                        className={`max-w-[80%] p-[10px] rounded-[10px] text-[14px] break-keep 
+                        ${
+                          msg.sender === 'user'
+                            ? 'bg-point1 text-white'
+                            : 'bg-white text-black'
+                        }`}
+                      >
+                        <p className="text-[10px] text-[#959596] mb-[5px] font-semibold">
+                          {msg.sender === 'user' ? '나' : 'AI'}
+                        </p>
+                        <p>{msg.text}</p>
+                      </div>
                     </div>
-                  </div>
-                ))}
+                  ))}
+                </div>
+                {/* 입력 */}
+                <div>
+                  <form onSubmit={handleSendMessage} className="flex">
+                    <input
+                      value={inpMsg}
+                      onChange={(e) => setInpMsg(e.target.value)}
+                      className="border-1 border-point1 w-full bottom-0 placeholder:text-center mt-[20px] placeholder:text-[#fff] text-[#fff] "
+                      placeholder="질문을 입력하세요"
+                    />
+                  </form>
+                  <button
+                    onClick={handleSendMessage}
+                    className=" border-1 block  bg-point1 border-point1 p-0 text-[12px] text-[#fff] w-full"
+                  >
+                    전송
+                  </button>
+                </div>
               </div>
-              <div>
-                <form onSubmit={handleSendMessage} className="flex">
-                  <input
-                    value={inpMsg}
-                    onChange={(e) => setInpMsg(e.target.value)}
-                    className="border-1 border-point1 w-full bottom-0 placeholder:text-center mt-[20px] placeholder:text-[#fff] text-[#fff]"
-                    placeholder="질문을 입력하세요"
-                  />
-                </form>
-                <button
-                  onClick={handleSendMessage}
-                  className=" border-1 block  bg-point1 border-point1 p-0 text-[12px] text-[#fff] w-full"
-                >
-                  전송
-                </button>
-              </div>
+              {/* 챗봇끝 */}
             </div>
           )}
           {/*모달 */}
