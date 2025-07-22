@@ -83,7 +83,7 @@ export default function Header({ className }: HeaderProps) {
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ messages: inpMsg }),
+        body: JSON.stringify({ message: inpMsg }),
       });
 
       if (!response.ok) {
