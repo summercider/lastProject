@@ -69,7 +69,11 @@ export default function Chatbot({
   };
 
   return (
-    <div className="pl-[10px] pr-[10px] pt-[40px] pb-[10px] bg-point2 opacity-90 absolute w-[200px] h-[500px] top-[20px] flex flex-col">
+    <div
+      className="pl-[10px] pr-[10px] pt-[40px] pb-[10px] bg-point2 opacity-90 absolute w-[360px] h-[500px] top-[20px] flex flex-col right-0
+      max-md:w-[200px]
+      "
+    >
       <button
         className="absolute left-0 top-0 text-[12px] text-[#fff]"
         onClick={() =>
@@ -106,7 +110,7 @@ export default function Chatbot({
                   : 'bg-white text-black'
               }`}
             >
-              <p className="text-[10px] text-[#959596] mb-[5px] font-semibold">
+              <p className="text-[10px] text-[#000] mb-[5px] font-semibold">
                 {msg.sender === 'user' ? '나' : 'AI'}
               </p>
               <p>{msg.text}</p>
@@ -116,18 +120,18 @@ export default function Chatbot({
       </div>
 
       {/* 입력 */}
-      <div>
+      <div className="flex flex-col gap-[5px]">
         <form onSubmit={handleSendMessage} className="flex">
           <input
             value={inpMsg}
             onChange={(e) => setInpMsg(e.target.value)}
-            className="border-1 border-point1 w-full bottom-0 placeholder:text-center mt-[20px] placeholder:text-[#fff] text-[#fff]"
+            className="border-1 border-point1 w-full bottom-0 placeholder:text-center mt-[10px] px-[10px] h-[36px] placeholder:text-[#fff] text-[#fff]"
             placeholder="질문을 입력하세요"
           />
         </form>
         <button
           onClick={handleSendMessage}
-          className="border-1 block bg-point1 border-point1 p-0 text-[12px] text-[#fff] w-full"
+          className="border-1 block bg-point1 border-point1 p-0 text-[14px] h-[32px] text-[#fff] w-full "
         >
           전송
         </button>
