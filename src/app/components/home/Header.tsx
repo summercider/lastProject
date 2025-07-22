@@ -27,7 +27,7 @@ export default function Header({ className }: HeaderProps) {
   const [headerShow, setHeaderShow] = useState(true);
   const [prvScroll, setPrvScroll] = useState(0);
 
-  const [chat, setChat] = useState(true);
+  const [chat, setChat] = useState(false);
 
   const [messages, setMessages] = useState([
     { sender: 'AI', text: '안녕하세요! 무엇을 도와드릴까요?' },
