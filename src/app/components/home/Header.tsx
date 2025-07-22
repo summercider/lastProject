@@ -77,6 +77,10 @@ export default function Header({ className }: HeaderProps) {
   ) => {
     e?.preventDefault();
 
+    if (!inpMsg.trim()) return;
+
+    setMessages((prev) => [{ sender: 'user', text: inpMsg }, ...prev]);
+
     try {
       const response = await fetch(url, {
         method: 'POST',
