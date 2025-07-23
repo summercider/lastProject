@@ -144,7 +144,7 @@ export default function Header({ className }: HeaderProps) {
                         ? 'text-point1'
                         : 'text-[var(--gray-600)]'
                     }`}
-                href={'/rent'}
+                href={'/test'}
               >
                 대관신청
               </Link>
