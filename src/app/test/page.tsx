@@ -111,7 +111,7 @@ export default function page() {
                         culture="ko" // react-big-calendr 한국어 요일 표시
                       />
                     </div>
-                    {/* 캘린더끝 */}
+                    {/* 캘린더끝    */}
                   </div>
                 </div>
               </div>
