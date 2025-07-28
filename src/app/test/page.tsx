@@ -1,12 +1,16 @@
 'use client';
-import React from 'react';
+import React, { useState } from 'react';
 import styles from '../rent/rent.module.css';
 
 import { format, add, sub, parse, startOfWeek, getDay } from 'date-fns';
 import { ko } from 'date-fns/locale';
 
-import { Calendar, dateFnsLocalizer } from 'react-big-calendar';
+import { Calendar as BigCalendar } from 'react-big-calendar';
+import { dateFnsLocalizer } from 'react-big-calendar';
 import 'react-big-calendar/lib/css/react-big-calendar.css';
+
+import Calendar from 'react-calendar';
+import 'react-calendar/dist/Calendar.css'; //커스텀 필수 import
 
 // 한국어 설정 date-fns
 
@@ -29,6 +33,8 @@ const events = [
 ];
 
 export default function page() {
+  const [value, setValue] = useState(new Date(2020, 11, 12)); //선택날짜 state
+
   const date = new Date();
   console.log(date, '///js 날짜');
 
@@ -99,8 +105,8 @@ export default function page() {
                     </div>
                     {/*  */}
                     <div className="w-[1000px] mx-auto">
-                      <h2>캘린더</h2>
-                      <Calendar
+                      <h2>react big calendar</h2>
+                      <BigCalendar
                         views={['month']}
                         defaultView="month"
                         localizer={localizer} //날짜 설정 필수
@@ -112,6 +118,29 @@ export default function page() {
                       />
                     </div>
                     {/* 캘린더끝    */}
+
+                    <div>
+                      <h2>react-calendar</h2>
+                      <div className="w-[500px] h-[500px]">
+                        <Calendar
+                          className="w-full h-full"
+                          onChange={setValue} //setter
+                          value={value} //선택값
+                          locale="ko-KR" //지역
+                          calendarType="gregory" // 일요일시작
+                          // defaultActiveStartDate	={} 시작날짜
+                          // activeStartDate={new Date()} //날짜선택
+                          // minDate={new Date(2015, 12, 10)} //선택 최소값
+                          // maxDate={new Date(2025, 1, 10)} //선택 최대값
+                          defaultView={'month'} // 기본뷰
+                          showNeighboringMonth={false} // 해당월외 날짜표시
+                          selectRange={true} // 범위선택 기능
+                        />
+                        <p style={{ textAlign: 'center', marginTop: 20 }}>
+                          {/* select value 날짜: {value.toDateString()} */}
+                        </p>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
