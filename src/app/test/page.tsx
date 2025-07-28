@@ -32,7 +32,7 @@ const events = [
   },
 ];
 
-export default function page() {
+export default function Testpage() {
   const [value, setValue] = useState(new Date(2020, 11, 12)); //선택날짜 state
 
   const date = new Date();
