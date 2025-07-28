@@ -124,7 +124,7 @@ export default function Testpage() {
                       <div className="w-[500px] h-[500px]">
                         <Calendar
                           className="w-full h-full"
-                          onChange={setValue} //setter
+                          onChange={() => setValue(value)} //setter
                           value={value} //선택값
                           locale="ko-KR" //지역
                           calendarType="gregory" // 일요일시작
